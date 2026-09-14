@@ -1,0 +1,22 @@
+# Maven
+target/
+*.jar
+*.war
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+screenshots/*.png
+test-output/
+surefire-reports/
