@@ -50,6 +50,11 @@ public class DriverManager {
                 if (headless) chromeOptions.addArguments("--headless=new");
                 chromeOptions.addArguments("--remote-allow-origins=*");
                 chromeOptions.addArguments("--window-size=1920,1080");
+                // Required for Chrome to launch on CI runners (e.g. GitHub Actions),
+                // which execute as root and lack a sandboxed environment. Harmless locally too.
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
+                chromeOptions.addArguments("--disable-gpu");
                 driver = new ChromeDriver(chromeOptions);
                 break;
         }

@@ -39,6 +39,10 @@ jobs:
         run: mvn clean test -Dheadless=true
         continue-on-error: true   # still publish the report even if some tests fail
 
+      - name: Ensure report directory exists
+        if: always()
+        run: mkdir -p test-output
+
       - name: Upload TestNG HTML report artifact
         if: always()
         uses: actions/upload-pages-artifact@v3
